@@ -1,7 +1,5 @@
 function createGrid(size) {
-    console.log("hello world");
     const grid = document.querySelector('.grid');
-    console.log(grid);
     // make a certain amount of row
     for (let r = 0; r < size; r++) {
         let newRow = document.createElement('div');
@@ -30,4 +28,17 @@ clearButton.addEventListener("click", () => {
     [...allBlocks].map(block => {
         block.classList.remove("dark");
     });
+})
+
+// for the slider
+const sizeSlider = document.querySelector(".size-slider");
+const sliderLabel = document.querySelector(".slider-label");
+sizeSlider.addEventListener("input", () => {
+    // change the text on input
+    sliderLabel.textContent = sizeSlider.value + " x " + sizeSlider.value
+})
+
+sizeSlider.addEventListener("change", () => {
+    // change the grid size once the user is done scrolling
+    console.log("finsihed")
 })
