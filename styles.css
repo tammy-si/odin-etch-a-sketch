@@ -9,7 +9,7 @@ body {
     width: 430px;
     border: 1px solid black;
     flex: 1 1 430px;
-    margin: 100px;
+    margin: 50px;
     display: flex;
     flex-direction: column;
 }
@@ -26,4 +26,13 @@ body {
 
 .block.dark {
     background-color: black;
+}
+
+.slider {
+    display: flex;
+    padding: 10px;
+}
+
+.slider .size-slider {
+    margin: 10px;
 }
