@@ -23,3 +23,7 @@ body {
     border: 0.5px solid black;
     flex: 1;
 }
+
+.block.dark {
+    background-color: black;
+}

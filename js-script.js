@@ -9,6 +9,10 @@ function createGrid(size) {
         for (let c = 0; c < size; c++) {
             let newBlock = document.createElement('div');
             newBlock.classList.add("block");
+            newBlock.addEventListener("mouseover", () => {
+                console.log("here")
+                newBlock.classList.add("dark");
+            })
             newRow.appendChild(newBlock);
         }
         grid.append(newRow);
