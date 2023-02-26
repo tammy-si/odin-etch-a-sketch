@@ -9,9 +9,10 @@ function createGrid(size) {
         for (let c = 0; c < size; c++) {
             let newBlock = document.createElement('div');
             newBlock.classList.add("block");
-            newBlock.addEventListener("mouseover", () => {
-                newBlock.classList.add("dark");
-            })
+            newBlock.onmouseover = () =>{
+                console.log(newBlock);
+                newBlock.style.background = "black";
+            }
             newRow.appendChild(newBlock);
         }
         grid.appendChild(newRow);
@@ -27,7 +28,7 @@ clearButton.addEventListener("click", () => {
     // get all the block
     const allBlocks = document.querySelectorAll(".block");
     [...allBlocks].map(block => {
-        block.classList.remove("dark");
+        block.style.background = "white";
     });
 })
 
@@ -46,4 +47,32 @@ sizeSlider.addEventListener("change", () => {
     const grid = document.querySelector('.grid')
     gridArea.removeChild(grid);
     createGrid(sizeSlider.value);
+})
+
+// change to black mode
+const blackModeButton = document.querySelector(".black-mode")
+blackModeButton.addEventListener('click', ()=> {
+    // get the 
+    const allBlocks = document.querySelectorAll(".block");
+    [...allBlocks].map(block => {
+        block.onmouseover = () => {
+            block.style.background = "black";
+        };
+    });
+})
+
+const rainbowModeButton = document.querySelector(".rainbow-mode")
+rainbowModeButton.addEventListener('click', ()=> {
+    // get the 
+    const allBlocks = document.querySelectorAll(".block");
+    [...allBlocks].map(block => {
+        // change the onmouseover to rainbow
+        block.onmouseover = () => {
+            // get random red
+            let red = Math.floor(Math.random() * 255 + 1);
+            let green = Math.floor(Math.random() * 255 + 1);
+            let blue = Math.floor(Math.random() * 255 + 1);
+            block.style.background = `rgb(${red},${green}, ${blue})`;
+        };
+    });
 })

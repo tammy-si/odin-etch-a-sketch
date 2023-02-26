@@ -9,7 +9,7 @@ body {
     width: 430px;
     border: 1px solid black;
     flex: 1 1 430px;
-    margin: 50px;
+    margin: 40px;
     display: flex;
     flex-direction: column;
 }
@@ -34,5 +34,11 @@ body {
 }
 
 .slider .size-slider {
+    margin: 10px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 12px;
     margin: 10px;
 }
