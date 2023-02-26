@@ -10,7 +10,6 @@ function createGrid(size) {
             let newBlock = document.createElement('div');
             newBlock.classList.add("block");
             newBlock.onmouseover = () =>{
-                console.log(newBlock);
                 newBlock.style.background = "black";
             }
             newRow.appendChild(newBlock);
@@ -73,6 +72,18 @@ rainbowModeButton.addEventListener('click', ()=> {
             let green = Math.floor(Math.random() * 255 + 1);
             let blue = Math.floor(Math.random() * 255 + 1);
             block.style.background = `rgb(${red},${green}, ${blue})`;
+        };
+    });
+})
+
+// change to eraser mode
+const eraserModeButton = document.querySelector(".eraser-mode")
+eraserModeButton.addEventListener('click', ()=> {
+    // get the 
+    const allBlocks = document.querySelectorAll(".block");
+    [...allBlocks].map(block => {
+        block.onmouseover = () => {
+            block.style.background = "white";
         };
     });
 })
