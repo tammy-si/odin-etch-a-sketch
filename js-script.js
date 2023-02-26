@@ -1,5 +1,7 @@
 function createGrid(size) {
-    const grid = document.querySelector('.grid');
+    const gridArea = document.querySelector('.grid-area');
+    let grid = document.createElement('div')
+    grid.classList.add('grid');
     // make a certain amount of row
     for (let r = 0; r < size; r++) {
         let newRow = document.createElement('div');
@@ -8,20 +10,19 @@ function createGrid(size) {
             let newBlock = document.createElement('div');
             newBlock.classList.add("block");
             newBlock.addEventListener("mouseover", () => {
-                console.log("here")
                 newBlock.classList.add("dark");
             })
             newRow.appendChild(newBlock);
         }
-        grid.append(newRow);
+        grid.appendChild(newRow);
     }
+    gridArea.appendChild(grid);
 }
 
 createGrid(16);
 
 // to clear
 const clearButton = document.querySelector(".clear");
-console.log(clearButton)
 clearButton.addEventListener("click", () => {
     // get all the block
     const allBlocks = document.querySelectorAll(".block");
@@ -40,5 +41,9 @@ sizeSlider.addEventListener("input", () => {
 
 sizeSlider.addEventListener("change", () => {
     // change the grid size once the user is done scrolling
-    console.log("finsihed")
+    // delete the old grid and just make a new one
+    const gridArea = document.querySelector('.grid-area');
+    const grid = document.querySelector('.grid')
+    gridArea.removeChild(grid);
+    createGrid(sizeSlider.value);
 })
