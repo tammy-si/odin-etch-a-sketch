@@ -20,3 +20,14 @@ function createGrid(size) {
 }
 
 createGrid(16);
+
+// to clear
+const clearButton = document.querySelector(".clear");
+console.log(clearButton)
+clearButton.addEventListener("click", () => {
+    // get all the block
+    const allBlocks = document.querySelectorAll(".block");
+    [...allBlocks].map(block => {
+        block.classList.remove("dark");
+    });
+})
